@@ -1,1 +1,16 @@
+# bruteforce-rule
+<group name="windows,auth_failure,">
 
+  <rule id="100015" level="12" frequency="5" timeframe="300">
+    <if_matched_sid>60122</if_matched_sid>
+    
+    <same_field>win.eventdata.targetUserName</same_field>
+    
+    <description>SOC ALERT: Brute Force attack! Multiple failed logins for user: $(win.eventdata.targetUserName)</description>
+    
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+</group>
